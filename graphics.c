@@ -56,6 +56,6 @@ void graphics_ucw_init_line_rectangle(struct graphics_ucw* ucw,
   ucw->gbsy1 = y1;
   ucw->gbsx2 = x2;
   ucw->gbsy2 = y2;
-  ucw->gblptn_or_gbdoti.gblptn.value = line_pattern;
+  ucw->gblptn_or_gbdoti.gblptn = line_pattern;
   ucw->gbdtyp = type;
 }

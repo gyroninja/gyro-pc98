@@ -3,13 +3,8 @@
 
 #include <stdint.h>
 
-struct __attribute__((packed)) gblptn {
-  uint16_t value;
-  uint8_t unused[6];
-};
-
 union __attribute__((packed)) gblptn_or_gbdoti {
-  struct gblptn gblptn;
+  uint16_t gblptn;
   uint8_t gbdoti[8];
 };
 
