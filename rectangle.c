@@ -10,7 +10,7 @@ int main() {
                     GRAPHICS_MODE_CRT_DISPLAY_COLOR |
                     GRAPHICS_MODE_DISPLAY_BANK0);
   struct graphics_ucw ucw = {0};
-  graphics_ucw_init_line_rectangle(
+  graphics_ucw_init_draw_line_rectangle(
       &ucw, DRAW_MODE_PLANE1_SET, DRAW_OPERATION_SET,
       DRAW_DIRECTION_RECTANGLE_TOP_LEFT_BOTTOM_RIGHT, 10, 10, 629, 389, 0xffff,
       DRAW_TYPE_RECTANGLE);

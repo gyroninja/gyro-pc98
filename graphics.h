@@ -138,6 +138,36 @@ void graphics_finish();
 void graphics_set_mode(graphics_mode mode);
 
 /**
+ * graphics_set_palette() - Sets the palette from the UCW.
+ * @param The UCW to read the palette data from.
+ *
+ * Before calling this function ucw should be initialized by calling
+ * graphics_ucw_init_palette().
+ */
+void graphics_set_palette(struct graphics_ucw* ucw);
+
+/**
+ * graphics_ucw_init_palette - Initializes UCW with a pallete.
+ * @param color0 Color used when P1=0 P2=0 P3=0 in the format of 0b0grb.
+ * @param color1 Color used when P1=0 P2=0 P3=1 in the format of 0b0grb.
+ * @param color2 Color used when P1=0 P2=1 P3=0 in the format of 0b0grb.
+ * @param color3 Color used when P1=0 P2=1 P3=1 in the format of 0b0grb.
+ * @param color4 Color used when P1=1 P2=0 P3=0 in the format of 0b0grb.
+ * @param color5 Color used when P1=1 P2=0 P3=1 in the format of 0b0grb.
+ * @param color6 Color used when P1=1 P2=1 P3=0 in the format of 0b0grb.
+ * @param color7 Color used when P1=1 P2=1 P3=1 in the format of 0b0grb.
+ */
+void graphics_ucw_init_palette(struct graphics_ucw* ucw,
+                               uint8_t color0,
+                               uint8_t color1,
+                               uint8_t color2,
+                               uint8_t color3,
+                               uint8_t color4,
+                               uint8_t color5,
+                               uint8_t color6,
+                               uint8_t color7);
+
+/**
  * graphics_draw_line_rectangle - Draws a straight line or rectangle.
  * @param target_screens Defines the screens that will be drawn to.
  * @param ucw The unit control word containing data about what to draw.
@@ -149,7 +179,8 @@ void graphics_draw_line_rectangle(target_screens target_screens,
                                   struct graphics_ucw* ucw);
 
 /**
- * graphics_ucw_init_line_rectangle - Initialize UCW for a line or rectangle.
+ * graphics_ucw_init_draw_line_rectangle - Initialize UCW for drawing a line or
+ * rectangle.
  * @param ucw The UCW that should be initialized.
  * @param drawing_modes The drawing mode that should be used for each plane.
  * @param drawing_operations The operation that should be used for drawing.
@@ -161,15 +192,15 @@ void graphics_draw_line_rectangle(target_screens target_screens,
  * @param line_pattern The 16 bit long line pattern that should be drawn in.
  * @param type Whether a line or a rectangle should be drawn.
  */
-void graphics_ucw_init_line_rectangle(struct graphics_ucw* ucw,
-                                      draw_mode modes,
-                                      draw_operation operations,
-                                      draw_direction direction,
-                                      uint16_t x1,
-                                      uint16_t y1,
-                                      uint16_t x2,
-                                      uint16_t y2,
-                                      uint16_t line_pattern,
-                                      draw_type type);
+void graphics_ucw_init_draw_line_rectangle(struct graphics_ucw* ucw,
+                                           draw_mode modes,
+                                           draw_operation operations,
+                                           draw_direction direction,
+                                           uint16_t x1,
+                                           uint16_t y1,
+                                           uint16_t x2,
+                                           uint16_t y2,
+                                           uint16_t line_pattern,
+                                           draw_type type);
 
 #endif
