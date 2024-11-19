@@ -35,7 +35,7 @@ struct __attribute__((packed)) graphics_ucw {
   uint16_t gbgwk6;
   uint16_t gbgwk7;
   uint16_t gbgwk8;
-  uint16_t gbgp122;
+  uint16_t gbgp12;
   uint16_t gbgp34;
   uint16_t gbgp56;
   uint16_t gbgp78;
